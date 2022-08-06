@@ -1,7 +1,13 @@
 "use strict";
+
+// TEXT
+const textInput = document.getElementById("text");
+const fillTextBtn = document.getElementById("fill-mode");
+const strokeTextBtn = document.getElementById("stroke-mode");
+
 const saveBtn = document.getElementById("save-btn");
 const fileInput = document.getElementById("image");
-const textInput = document.getElementById("text");
+
 const colorOptions = Array.from(
   document.getElementsByClassName("color-option")
 );
@@ -96,6 +102,15 @@ function onEraserClick() {
   modeBtn.innerText = "Fill";
 }
 
+function onSaveClick() {
+  const url = canvas.toDataURL();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
+}
+
+// TEXT
 function onDoubleClick(e) {
   const text = textInput.value;
   if (text !== "") {
@@ -106,15 +121,11 @@ function onDoubleClick(e) {
     ctx.restore();
   }
 }
-function onSaveClick() {
-  const url = canvas.toDataURL();
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "myDrawing.png";
-  a.click();
-}
 
-canvas.addEventListener("dblclick", onDoubleClick);
+function fillTextStyle() {
+  console.log("clicked");
+}
+console.dir(fillTextBtn);
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", onMouseDown);
 canvas.addEventListener("mouseup", cancelPainting);
@@ -129,3 +140,7 @@ resetBtn.addEventListener("click", onResetClick);
 eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
 saveBtn.addEventListener("click", onSaveClick);
+// TEXT
+
+canvas.addEventListener("dblclick", onDoubleClick);
+fillTextBtn.addEventListener("click", fillTextStyle);

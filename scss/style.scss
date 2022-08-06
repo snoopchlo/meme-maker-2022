@@ -1,3 +1,7 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+@import "./canvas.scss";
 // -----how to use mixins -> @include name()
 
 // a:nth-child(odd) {
