@@ -1,0 +1,39 @@
+// -----how to use mixins -> @include name()
+
+// a:nth-child(odd) {
+//     @include link(blue);
+// }
+
+// a:nth-child(even) {
+//     @include link(red);
+// }
+
+// a:nth-child(odd) {
+//     @include link(odd);
+// }
+
+// a:nth-child(even) {
+//     @include link(even);
+// }
+
+// ----- how to use ::content
+// h1 {
+//     color: red;
+//     @include responsive("phone") {
+//         color: yellow;
+//     }
+//     @include responsive("tablet") {
+//         color: blue;
+//     }
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
