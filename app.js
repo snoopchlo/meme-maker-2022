@@ -223,8 +223,7 @@ console.log(ctx.font);
 //   }
 // }
 function onFontSizeChange(e) {
-  let cf = getBhutukaFont();
-  ctx.font = `${e.target.value}px ${cf}`;
+  ctx.font = `${e.target.value}px serif`;
 }
 function onColorChange(e) {
   ctx.fillStyle = e.target.value;
@@ -274,6 +273,7 @@ function onResetClick() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   noBtnEffect();
+  colorPalette.style.color = "black";
 }
 
 function onEraserClick() {
@@ -300,7 +300,6 @@ function onSaveClick() {
 }
 
 function onDoubleClick(e) {
-  e.preventDefault();
   const text = textInput.value;
   if (text !== "" && fillText) {
     ctx.save();
