@@ -2,6 +2,9 @@
 @import "./variables.scss";
 
 @import "./canvas.scss";
+@import "./header.scss";
+@import "./background.scss";
+@import "./footer.scss";
 // -----how to use mixins -> @include name()
 
 // a:nth-child(odd) {
@@ -40,4 +43,16 @@
 body {
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+button,
+li,
+a {
+  all: unset;
 }

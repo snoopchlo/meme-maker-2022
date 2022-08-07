@@ -24,131 +24,237 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="./app.js"></script>
+    <script defer src="./background.js"></script>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="0.5" />
-    <input type="color" id="color" />
-    <div>
-      <div
-        class="color-option"
-        style="background-color: #1abc9c"
-        data-color="#1abc9c"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #3498db"
-        data-color="#3498db"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #34495e"
-        data-color="#34495e"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #27ae60"
-        data-color="#27ae60"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #8e44ad"
-        data-color="#8e44ad"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #f1c40f"
-        data-color="#f1c40f"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #e74c3c"
-        data-color="#e74c3c"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #95a5a6"
-        data-color="#95a5a6"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #d35400"
-        data-color="#d35400"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #bdc3c7"
-        data-color="#bdc3c7"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #2ecc71"
-        data-color="#2ecc71"
-      ></div>
-      <div
-        class="color-option"
-        style="background-color: #e67e22"
-        data-color="#e67e22"
-      ></div>
-    </div>
-    <button id="mode-btn">Fill</button>
-    <button id="reset-btn">Reset</button>
-    <button id="eraser-btn">Eraser</button>
-    <input type="file" accept="image/*" id="image" />
-    <section id="text-container">
-      <input type="text" placeholder="Write and then double click" id="text" />
-      <div class="text-style">
-        <h2>Text Style</h2>
-        <button id="fill-mode">Fill</button>
-        <button id="stroke-mode">Stroke</button>
-      </div>
-      <div class="text-font">
-        <div class="dropdown">
-          <button
-            id="font-dropdown-btn"
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Fonts
-          </button>
-          <ul class="dropdown-menu">
-            <li id="bhutuka">
-              <a class="dropdown-item" href="#">BhuTuka Expanded One</a>
-            </li>
-            <li id="montserrat">
-              <a class="dropdown-item" href="#">Montserrat</a>
-            </li>
-            <li id="mouse">
-              <a class="dropdown-item" href="#">Mouse Memoirs</a>
-            </li>
-            <li id="oleo">
-              <a class="dropdown-item" href="#">Oleo Script Swash Caps</a>
-            </li>
-            <li id="orbitron">
-              <a class="dropdown-item" href="#">Orbitron</a>
-            </li>
-            <li id="pacifico">
-              <a class="dropdown-item" href="#">Pacifico</a>
-            </li>
-            <li id="permanent">
-              <a class="dropdown-item" href="#">Permanent Marker</a>
-            </li>
-            <li id="play"><a class="dropdown-item" href="#">Play</a></li>
-            <li id="roboto"><a class="dropdown-item" href="#">Roboto</a></li>
-            <li id="sans-serif">
-              <a class="dropdown-item" href="#">Sans-serif</a>
-            </li>
-          </ul>
+    <div class="circle1 circle"></div>
+    <div class="circle2 circle"></div>
+    <div class="circle3 circle"></div>
+    <div class="circle4 circle"></div>
+    <div class="circle5 circle"></div>
+    <main class="canvas-container glass">
+      <!-- <header class="canvas-header">
+        <ul class="main-header__icons">
+          <li>
+            <a href="index.html">
+              <i class="fa-regular fa-magnifying-glass fa-lg"
+                ><button>CANVAS</button></i
+              >
+            </a>
+          </li>
+          <li>
+            <a href="gallery.html">
+              <i class="fa-regular fa-magnifying-glass fa-lg"
+                ><button>GALLERY</button></i
+              >
+            </a>
+          </li>
+        </ul>
+      </header> -->
+      <section id="main">
+        <div class="color-options-container">
+          <div class="color-options-container__menu">
+            <label id="color-palette" for="color"
+              ><i class="fa-solid fa-palette fa-2xl"></i
+            ></label>
+            <input type="color" id="color" style="display: none" />
+
+            <div
+              class="color-option"
+              style="background-color: #d61c4e"
+              data-color="#3498db"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #f77e21"
+              data-color="#34495e"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #f2df3a"
+              data-color="#27ae60"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #28ffbf"
+              data-color="#8e44ad"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #3db2ff"
+              data-color="#f1c40f"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #233e8b"
+              data-color="#e74c3c"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #845ec2"
+              data-color="#95a5a6"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #ffb3b3"
+              data-color="#d35400"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #ff75a0"
+              data-color="#bdc3c7"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #ffe9ae"
+              data-color="#2ecc71"
+            ></div>
+            <div
+              class="color-option"
+              style="background-color: #11144c"
+              data-color="#e67e22"
+            ></div>
+          </div>
+        </div>
+        <div class="canvas-container">
+          <canvas id="canvas"></canvas>
         </div>
 
-        <h2>Font Style</h2>
-        <span>Font1</span>
-        <span>Font2</span>
-      </div>
-    </section>
+        <section class="tool-container">
+          <div class="tool-container__menu">
+            <div class="brush-container">
+              <div class="item-size">
+                <div>
+                  <i class="fa-solid fa-paintbrush-fine fa-xs"></i>
+                </div>
+                <div>
+                  <i class="fa-solid fa-paintbrush-fine"></i>
+                </div>
+                <div>
+                  <i class="fa-solid fa-paintbrush-fine fa-lg"></i>
+                </div>
+              </div>
 
-    <button id="save-btn">Save Image</button>
+              <input
+                id="line-width"
+                type="range"
+                min="1"
+                max="10"
+                value="5"
+                step="0.5"
+              />
+            </div>
+            <div class="mode-btn">
+              <button id="mode-btn__pen">
+                <i class="fa-solid fa-paintbrush-fine"></i>
+              </button>
+              <button id="mode-btn__fill">
+                <i class="fa-solid fa-fill-drip"></i>
+              </button>
+              <button id="eraser-btn">
+                <i class="fa-solid fa-eraser"></i>
+              </button>
+            </div>
+            <input
+              type="text"
+              placeholder="Write and then double click"
+              id="text"
+            />
+            <div class="font-style">
+              <button class="font-style__btn" id="fill-mode">
+                <i class="fa-solid fa-text"></i>
+              </button>
+              <button class="font-style__btn" id="stroke-mode">
+                <div><i class="fa-thin fa-text"></i></div>
+              </button>
+            </div>
+
+            <section class="text-container">
+              <div class="text-style">
+                <div class="item-size">
+                  <span><i class="fa-solid fa-text fa-xs"></i></span>
+                  <span><i class="fa-solid fa-text"></i></span>
+                  <span><i class="fa-solid fa-text fa-lg"></i></span>
+                </div>
+                <input
+                  id="font-size"
+                  type="range"
+                  min="1"
+                  max="200"
+                  value="100"
+                  step="1"
+                />
+              </div>
+
+              <div class="text-font">
+                <!-- <div class="dropdown">
+              <button
+                id="font-dropdown-btn"
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Fonts
+              </button>
+              <div class="dropdown-menu">
+                <button id="bhutuka">BhuTuka Expanded One</button>
+                <li id="montserrat">
+                  <a class="dropdown-item" href="#" data-font="Montserrat"
+                    >Montserrat</a
+                  >
+                </li>
+                <li id="mouse">
+                  <a class="dropdown-item" href="#">Mouse Memoirs</a>
+                </li>
+                <li id="oleo">
+                  <a class="dropdown-item" href="#">Oleo Script Swash Caps</a>
+                </li>
+                <li id="orbitron">
+                  <a class="dropdown-item" href="#">Orbitron</a>
+                </li>
+                <li id="pacifico">
+                  <a class="dropdown-item" href="#">Pacifico</a>
+                </li>
+                <li id="permanent">
+                  <a class="dropdown-item" href="#">Permanent Marker</a>
+                </li>
+                <li id="play"><a class="dropdown-item" href="#">Play</a></li>
+                <li id="roboto"><a class="dropdown-item" href="#">Roboto</a></li>
+                <li id="sans-serif">
+                  <a class="dropdown-item" href="#">Sans-serif</a>
+                </li>
+              </div>
+            </div> -->
+              </div>
+            </section>
+            <label class="input-image-label" for="image">Upload Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              id="image"
+              style="display: none"
+            />
+            <button id="save-btn">Save Image</button>
+
+            <button id="reset-btn">Reset</button>
+          </div>
+        </section>
+      </section>
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="main-footer__color-btn">
+          <div class="main-footer__color-btn-text">
+            <h5>change colour</h5>
+          </div>
+
+          <i class="fa-regular fa-brush fa-sm"></i>
+        </div>
+      </footer>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/eabde6f642.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
