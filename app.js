@@ -22,8 +22,8 @@ const modeBtnFill = document.getElementById("mode-btn__fill");
 const resetBtn = document.getElementById("reset-btn");
 const eraserBtn = document.getElementById("eraser-btn");
 
-const CANVAS_WIDTH = 650;
-const CANVAS_HEIGHT = 650;
+const CANVAS_WIDTH = 610;
+const CANVAS_HEIGHT = 610;
 
 const fontBtn = document.getElementById("font-dropdown-btn");
 const bhutukaFont = document.getElementById("bhutuka");

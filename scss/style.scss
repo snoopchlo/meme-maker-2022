@@ -5,6 +5,7 @@
 @import "./header.scss";
 @import "./background.scss";
 @import "./footer.scss";
+@import "./account.scss";
 // -----how to use mixins -> @include name()
 
 // a:nth-child(odd) {
@@ -55,4 +56,8 @@ button,
 li,
 a {
   all: unset;
+}
+
+.hidden {
+  display: none;
 }

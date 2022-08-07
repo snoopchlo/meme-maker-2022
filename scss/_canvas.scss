@@ -7,8 +7,8 @@
   align-items: center;
 }
 #canvas {
-  width: 650px;
-  height: 650px;
+  width: 610px;
+  height: 610px;
   background-color: white;
   border-radius: 13px;
 }
@@ -29,10 +29,12 @@
   transition: all 0.3;
   padding: 1rem 2rem;
   font-size: 0.9rem;
+  display: flex;
+  justify-content: flex-end;
 }
 #main {
   height: 90vh;
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-row: 1fr;
